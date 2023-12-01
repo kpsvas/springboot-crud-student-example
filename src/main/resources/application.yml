@@ -1,0 +1,21 @@
+#spring configuration
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+  jpa:
+    properties:
+      show-sql: true
+      hibernate: # jpa configuration parameter
+        dialect: org.hibernate.dialect.MySQL5Dialect
+        format_sql: true
+        use-new-id-generator-mappings: false
+        #ddl-auto: update
+        naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+  datasource:  #data source configuration
+    url: jdbc:mysql://108.175.13.142:3306/trainingdb?useSSL=false
+    username: root
+    password: Srr@1216it
+    testWhileIdle: true # Keep the connection alive if idle for a long time
+    validationQuery: SELECT 1
