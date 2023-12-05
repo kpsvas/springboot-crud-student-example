@@ -22,15 +22,18 @@ public class StudentController {
     public String listStudent(Model model)
     {
         List<Student> studentList = studentService.getStudents();
+
         model.addAttribute("students", studentList);
-        return "listStudent";
+
+        return "/student/listStudent";
     }
 
     @RequestMapping(value="/addStudent", method = RequestMethod.GET)
     public String showStudent(Model model)
     {
-        model.addAttribute("student", new Student());
-        return "student";
+        Student student = new Student();
+        model.addAttribute("student", student);
+        return "/student/student";
     }
 
     @RequestMapping(value="/addStudent", method = RequestMethod.POST)
@@ -59,7 +62,7 @@ public class StudentController {
     {
         Student student = studentService.getStudentById(id);
         model.addAttribute("student", student);
-        return "editStudent";
+        return "/student/editStudent";
     }
 
     @RequestMapping(value="/editStudent", method = RequestMethod.POST)
